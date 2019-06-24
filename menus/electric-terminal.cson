@@ -28,7 +28,7 @@
   {
     'label': 'Packages'
     'submenu': [
-      'label': 'electric-terminal'
+      'label': 'Electric Terminal'
       'submenu': [
         {
           'label': 'Toggle'
