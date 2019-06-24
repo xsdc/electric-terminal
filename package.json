@@ -1,7 +1,7 @@
 {
   "name": "electric-terminal",
   "main": "./lib/electric-terminal",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A terminal package for Atom.",
   "repository": "https://github.com/xsdc/electric-terminal",
   "license": "MIT",
