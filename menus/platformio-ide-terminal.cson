@@ -1,0 +1,68 @@
+'context-menu':
+  '.electric-terminal .pio-terminal-status-icon': [
+    {label: 'Red', command: 'electric-terminal:status-red'},
+    {label: 'Orange', command: 'electric-terminal:status-orange'},
+    {label: 'Yellow', command: 'electric-terminal:status-yellow'},
+    {label: 'Green', command: 'electric-terminal:status-green'},
+    {label: 'Blue', command: 'electric-terminal:status-blue'},
+    {label: 'Purple', command: 'electric-terminal:status-purple'},
+    {label: 'Pink', command: 'electric-terminal:status-pink'},
+    {label: 'Cyan', command: 'electric-terminal:status-cyan'},
+    {label: 'Magenta', command: 'electric-terminal:status-magenta'},
+    {label: 'Default', command: 'electric-terminal:status-default'},
+    {type: 'separator'},
+    {label: 'Hide', command: 'electric-terminal:context-hide'},
+    {label: 'Rename', command: 'electric-terminal:context-rename'},
+    {label: 'Close', command: 'electric-terminal:context-close'}
+  ]
+  '.electric-terminal .terminal': [
+    {label: 'Copy', command: 'electric-terminal:copy'},
+    {label: 'Paste', command: 'electric-terminal:paste'},
+    {type: 'separator'},
+    {label: 'Hide', command: 'electric-terminal:hide'},
+    {label: 'Close', command: 'electric-terminal:close'}
+    {type: 'separator'}
+    {label: "Clear", command: 'electric-terminal:clear'}
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'electric-terminal'
+      'submenu': [
+        {
+          'label': 'Toggle'
+          'command': 'electric-terminal:toggle'
+        },
+        {
+          'label': 'Focus'
+          'command': 'electric-terminal:focus'
+        },
+        {
+          'label': 'New Terminal'
+          'command': 'electric-terminal:new'
+        },
+        {
+          'label': 'Previous Terminal'
+          'command': 'electric-terminal:prev'
+        },
+        {
+          'label': 'Next Terminal'
+          'command': 'electric-terminal:next'
+        },
+        {
+          'label': 'Toggle Fullscreen'
+          'command': 'electric-terminal:fullscreen'
+        },
+        {
+          'label': 'Close Terminal'
+          'command': 'electric-terminal:close'
+        },
+        {
+          'label': 'Close All Terminals'
+          'command': 'electric-terminal:close-all'
+        }
+      ]
+    ]
+  }
+]

@@ -1,0 +1,25 @@
+'.platform-darwin atom-workspace':
+  'cmd-alt-t': 'electric-terminal:new'
+  'cmd-shift-j': 'electric-terminal:prev'
+  'cmd-shift-k': 'electric-terminal:next'
+  'cmd-shift-x': 'electric-terminal:close'
+  'cmd-alt-f': 'electric-terminal:focus'
+  'ctrl-`': 'electric-terminal:toggle'
+  'ctrl-alt-enter': 'electric-terminal:insert-selected-text'
+
+'.platform-linux atom-workspace, .platform-win32 atom-workspace':
+  'alt-shift-t': 'electric-terminal:new'
+  'alt-shift-j': 'electric-terminal:prev'
+  'alt-shift-k': 'electric-terminal:next'
+  'alt-shift-x': 'electric-terminal:close'
+  'ctrl-enter': 'electric-terminal:insert-selected-text'
+  'ctrl-`': 'electric-terminal:toggle'
+  'ctrl-alt-f': 'electric-terminal:focus'
+
+'.platform-darwin .electric-terminal .terminal':
+  'cmd-c': 'electric-terminal:copy'
+  'cmd-v': 'electric-terminal:paste'
+
+'.platform-linux .electric-terminal .terminal, .platform-win32 .electric-terminal .terminal':
+  'alt-v': 'electric-terminal:paste'
+  'alt-c': 'electric-terminal:copy'
