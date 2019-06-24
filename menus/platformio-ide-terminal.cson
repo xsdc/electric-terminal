@@ -1,5 +1,5 @@
 'context-menu':
-  '.electric-terminal .pio-terminal-status-icon': [
+  '.electric-terminal .electric-terminal-status-icon': [
     {label: 'Red', command: 'electric-terminal:status-red'},
     {label: 'Orange', command: 'electric-terminal:status-orange'},
     {label: 'Yellow', command: 'electric-terminal:status-yellow'},

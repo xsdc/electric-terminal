@@ -88,8 +88,8 @@ class StatusBar extends View
     @statusContainer.on 'dblclick', (event) =>
       @newTerminalView() unless event.target != event.delegateTarget
 
-    @statusContainer.on 'dragstart', '.pio-terminal-status-icon', @onDragStart
-    @statusContainer.on 'dragend', '.pio-terminal-status-icon', @onDragEnd
+    @statusContainer.on 'dragstart', '.electric-terminal-status-icon', @onDragStart
+    @statusContainer.on 'dragend', '.electric-terminal-status-icon', @onDragEnd
     @statusContainer.on 'dragleave', @onDragLeave
     @statusContainer.on 'dragover', @onDragOver
     @statusContainer.on 'drop', @onDrop
@@ -129,12 +129,12 @@ class StatusBar extends View
       'electric-terminal:status-magenta': @setStatusColor
       'electric-terminal:status-default': @clearStatusColor
       'electric-terminal:context-close': (event) ->
-        $(event.target).closest('.pio-terminal-status-icon')[0].terminalView.destroy()
+        $(event.target).closest('.electric-terminal-status-icon')[0].terminalView.destroy()
       'electric-terminal:context-hide': (event) ->
-        statusIcon = $(event.target).closest('.pio-terminal-status-icon')[0]
+        statusIcon = $(event.target).closest('.electric-terminal-status-icon')[0]
         statusIcon.terminalView.hide() if statusIcon.isActive()
       'electric-terminal:context-rename': (event) ->
-        $(event.target).closest('.pio-terminal-status-icon')[0].rename()
+        $(event.target).closest('.electric-terminal-status-icon')[0].rename()
 
   registerPaneSubscription: ->
     @subscriptions.add @paneSubscription = atom.workspace.observePanes (pane) =>
@@ -333,15 +333,15 @@ class StatusBar extends View
   setStatusColor: (event) ->
     color = event.type.match(/\w+$/)[0]
     color = atom.config.get("electric-terminal.iconColors.#{color}").toRGBAString()
-    $(event.target).closest('.pio-terminal-status-icon').css 'color', color
+    $(event.target).closest('.electric-terminal-status-icon').css 'color', color
 
   clearStatusColor: (event) ->
-    $(event.target).closest('.pio-terminal-status-icon').css 'color', ''
+    $(event.target).closest('.electric-terminal-status-icon').css 'color', ''
 
   onDragStart: (event) =>
     event.originalEvent.dataTransfer.setData 'electric-terminal-panel', 'true'
 
-    element = $(event.target).closest('.pio-terminal-status-icon')
+    element = $(event.target).closest('.electric-terminal-status-icon')
     element.addClass 'is-dragging'
     event.originalEvent.dataTransfer.setData 'from-index', element.index()
 
@@ -360,7 +360,7 @@ class StatusBar extends View
     newDropTargetIndex = @getDropTargetIndex(event)
     return unless newDropTargetIndex?
     @removeDropTargetClasses()
-    statusIcons = @statusContainer.children '.pio-terminal-status-icon'
+    statusIcons = @statusContainer.children '.electric-terminal-status-icon'
 
     if newDropTargetIndex < statusIcons.length
       element = statusIcons.eq(newDropTargetIndex).addClass 'is-drop-target'
@@ -436,8 +436,8 @@ class StatusBar extends View
     target = $(event.target)
     return if @isPlaceholder(target)
 
-    statusIcons = @statusContainer.children('.pio-terminal-status-icon')
-    element = target.closest('.pio-terminal-status-icon')
+    statusIcons = @statusContainer.children('.electric-terminal-status-icon')
+    element = target.closest('.electric-terminal-status-icon')
     element = statusIcons.last() if element.length is 0
 
     return 0 unless element.length
@@ -446,8 +446,8 @@ class StatusBar extends View
 
     if event.originalEvent.pageX < elementCenter
       statusIcons.index(element)
-    else if element.next('.pio-terminal-status-icon').length > 0
-      statusIcons.index(element.next('.pio-terminal-status-icon'))
+    else if element.next('.electric-terminal-status-icon').length > 0
+      statusIcons.index(element.next('.electric-terminal-status-icon'))
     else
       statusIcons.index(element) + 1
 
@@ -465,7 +465,7 @@ class StatusBar extends View
     @getStatusIcons().eq(index)
 
   getStatusIcons: ->
-    @statusContainer.children('.pio-terminal-status-icon')
+    @statusContainer.children('.electric-terminal-status-icon')
 
   moveIconToIndex: (icon, toIndex) ->
     followingIcon = @getStatusIcons()[toIndex]
